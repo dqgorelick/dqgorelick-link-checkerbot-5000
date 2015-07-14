@@ -6,10 +6,10 @@ var request = require('request');
 var cheerio = require('cheerio');
 
 // site we want to check
-var site = process.argv[2] || "http://www.riprc.org/resources/?resource-audience&resource-topic&resource-type&resource-location";
+var url = process.argv[2] || "http://www.google.com";
 
 // using the request module. the response is what we will look at to make sure the link works. 200 = GOOD, 404 = BAD, idk other numbers very well.
-request(site, function(error, response, body) {
+request(url, function(error, response, body) {
 	// create variable for HTML page and new array for the links
 	if (!error && response.statusCode == 200) {
 		$ = cheerio.load(body);
