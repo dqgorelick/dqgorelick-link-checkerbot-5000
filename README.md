@@ -11,10 +11,10 @@ Run "npm install"
 
 Step 4:
 Run "node app.js" to get results from "http://www.google.com"
-
 or 
-
 Run "node app.js YOUR-URL" to get results from specific URL
+or
+Run "node app.js resources" to get all the results from RIPRC resources pages
 
 Step 5: 
 Feel free to open app.js and change url variable

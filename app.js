@@ -8,7 +8,7 @@ var input		 	= process.argv[2];
 
 // site we want to check
 if (input === "resources") {
-	var url = "http://www.riprc.org/resources/page/2/?resource-audience&resource-topic&resource-type&resource-location";
+	var url = "http://www.riprc.org/resources/?resource-audience&resource-topic&resource-type&resource-location";
 } else {
 	var url = input || "http://www.google.com";
 }
@@ -27,9 +27,8 @@ request(url, function(error, response, body) {
 			filtered.push(data);
 		})
 
-
 		if(input === "resources"){
-			for(var page = 3; page < 65; page++){
+			for(var page = 2; page < 65; page++){
 				console.log("Looking at page " + page)
 				var site = "http://www.riprc.org/resources/page/" + page + "/?resource-audience&resource-topic&resource-type&resource-location"
 				request(site, function(error, response, body) {
