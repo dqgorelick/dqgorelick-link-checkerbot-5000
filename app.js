@@ -5,10 +5,13 @@ var fs 				= require('fs');
 var request 		= require('request');
 var cheerio 		= require('cheerio');
 var input		 	= process.argv[2];
+var starting 		= process.argv[3] || 2;
+var ending 			= process.argv[4] || 65;
 
 // site we want to check
 if (input === "resources") {
 	var url = "http://www.riprc.org/resources/?resource-audience&resource-topic&resource-type&resource-location";
+	console.log("Starting at PAGE:" + starting + " and ending at PAGE:" + ending)
 } else {
 	var url = input || "http://www.google.com";
 }
@@ -28,7 +31,8 @@ request(url, function(error, response, body) {
 		})
 
 		if(input === "resources"){
-			for(var page = 2; page < 65; page++){
+
+			for(var page = starting; page < ending; page++){
 				console.log("Looking at page " + page)
 				var site = "http://www.riprc.org/resources/page/" + page + "/?resource-audience&resource-topic&resource-type&resource-location"
 				request(site, function(error, response, body) {
